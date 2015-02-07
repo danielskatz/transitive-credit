@@ -1,5 +1,8 @@
 \documentclass[a4paper,10pt]{article}
 
+\usepackage{amsmath}
+\usepackage{amssymb}
+
 %\usepackage[margin=1in]{geometry}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
@@ -34,6 +37,16 @@
 % Don't use tt font for urls
 \urlstyle{rm}
 
+\definecolor{orange}{rgb}{1.0,0.3,0.0}
+\definecolor{violet}{rgb}{0.75,0,1}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{cyan}{rgb}{0.2,0.7,0.7}
+\definecolor{blueish}{rgb}{0.2,0.2,0.8}
+
+\newcommand{\note}[1]{{\color{darkgreen}$\blacksquare$~\textsf{[NOTE: #1]}}}
+\newcommand{\katznote}[1]{ {\textcolor{magenta}    {$\blacksquare$~Dan:      #1 }}}
+\newcommand{\arfonnote}[1]{ {\textcolor{orange}    { $\blacksquare$~Arfon:     #1 }}}
+
 \title{Implementing Transitive Credit with JSON-LD \vspace{-0.2cm}}
 
 \author{
@@ -66,7 +79,7 @@ To promote and advance these activities, we must develop mechanisms for assignin
 
 Science and engineering research increasingly relies on activities that facilitate research but are not currently rewarded or recognized. This includes the sharing of data; development of common data resources, software and methodologies; and annotation of data and publications. This situation has been documented in a number of recent reports~\cite{NSF_software_vision, WSSSPE1} that focus on changing needs and mechanisms for attribution and citation of digital products, from the use of alternative metrics~\cite{altmetrics} that track reports of research impact apart from research publications, to work on data~\cite{nrc_data}. About half of the articles in many recent issues of Science describe research that depended on software, and a larger fraction analyze data. Indeed, the US National Science Foundation recently updated its guide to proposers to instruct them to provide a list of their ``products''---objects that are ``citable and accessible including but not limited to publications, data sets, software, patents, and copyrights''---rather than publications~\cite{nsf_gpg}.  
 
-To promote and advance pursuit of activities that facilitate research, we must develop mechanisms for assigning credit, facilitate the appropriate attribution of research outcomes, devise incentives for activities that facilitate research, and allocate funds to maximize return on investment. In this article, we explore how the idea of transitive credit~\cite{Katz2_WSSSPE, Katz2_WSSSPE_JORS}, which would credit both direct and indirect contributions, can be implemented.
+To promote and advance pursuit of activities that facilitate research, we must develop mechanisms for assigning credit, facilitate the appropriate attribution of research outcomes, devise incentives for activities that facilitate research, and allocate funds to maximize return on investment. In this article, we explore how the idea of transitive credit~\cite{Katz2_WSSSPE, Katz2_WSSSPE_JORS}, which would credit both direct and indirect contributions, can be implemented. Note that this article is an extended version of an earlier paper~\cite{transitive-wssspe2}. 
 
 
 \section{Transitive Credit}
@@ -83,6 +96,10 @@ The third element of transitive credit is its transitive nature, as is shown, fo
 The value of transitive credit is in measuring the indirect contributions to a product, which today are not quantitatively captured. Because they aren't captured, they aren't rewarded, and there is a disincentive to perform them, due to the cost (in time or something else). If they were captured, this disincentive would be replaced by an incentive, which for software and data would mean to publish and share them in a reusable form.
 
 Transitive credit could be implemented by adding either creditmaps to the metadata stored with DOIs~\cite{DOI-data-model}, or alternatively by building a separate system to store creditmaps and then adding pointers to entries in this system to the metadata stored in DOIs. Here, we focus on the creditmap itself, and how it can be described in a structured, machine (and human) readable form.
+
+\section{Determining Creditmaps}
+
+\katznote{discussion about how creditmaps could be determined, provenance systems, hierarchically, etc.}
 
 \section{JSON-LD}
 
@@ -105,9 +122,10 @@ In the final stages of standardization at W3C~\cite{w3c}, JSON-LD is designed to
 
 \section{Using JSON-LD for Transitive Credit}
 
-Smith recently proposed using JSON-LD for research tools~\cite{arfon-json-ld-blog}. In this paper, we extend this idea to suggest that it could be used for transitive credit of any scholarly product. Because of namespaced nature of the JSON-LD structure, it is trivial to include all contriponents such as datasets, software, and articles with their appropriate semantic context definition while maintainting a both human and machine-readable structure. Note that we use vocabularies from \url{http://schema.org} for the different entities; other examples include DOAP (\url{https://github.com/edumbill/doap}) and SPDX (\url{http://spdx.org}).
+Smith recently proposed using JSON-LD for research tools~\cite{arfon-json-ld-blog}. In this paper, we extend this idea to suggest that it could be used for transitive credit of any scholarly product. Because of namespaced nature of the JSON-LD structure, it is trivial to include all contriponents such as datasets, software, and articles with their appropriate semantic context definition while maintaining a both human and machine-readable structure. Note that we use vocabularies from \url{http://schema.org} for the different entities; other examples include DOAP (\url{https://github.com/edumbill/doap}) and SPDX (\url{http://spdx.org}).
 
 A subset (due to space limits) of a possible creditmap for this article follows, as an illustrative example of the power of this concept. 
+\note{could extend this? at least add the acknowledged people}
 
 {\footnotesize
 \begin{verbatim}
@@ -175,6 +193,14 @@ A subset (due to space limits) of a possible creditmap for this article follows,
 \end{verbatim}
 }
 
+
+\section{Using the JSON-LD Metadata}
+
+\katznote{not sure this title is right}
+
+\katznote{where will this file be stored?  How will it be accessed?}
+
+\katznote{role of standards (in this section or in a new one)?}
 
 \section{Conclusions}
 
