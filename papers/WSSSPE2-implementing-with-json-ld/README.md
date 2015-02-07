@@ -21,11 +21,7 @@ paper accepted by:
 16 November 2014, New Orleans, LA, USA
 (http://wssspe.researchcomputing.org.uk/wssspe2/), 
 
-slides presented at Project CRediT workshop, Washington, DC, USA, December 2014 (http://projectcredit.net)
-
-poster presented at FORCE2015, Oxford, UK, January 2015 (https://www.force11.org/meetings/force2015)
-
-cite as:
+cite paper as:
 @article{DBLP:journals/corr/KatzS14,
   author    = {Daniel S. Katz and
                Arfon M. Smith},
@@ -38,3 +34,19 @@ cite as:
   biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/KatzS14},
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
+
+slides presented at Project CRediT workshop, Washington, DC, USA, December 2014 (http://projectcredit.net) (also available as http://www.slideshare.net/danielskatz/transitive-credit)
+
+poster presented at FORCE2015, Oxford, UK, January 2015 (https://www.force11.org/meetings/force2015)
+
+cite poster as:
+@article{Katz2014,
+author = "Daniel S. Katz and Arfon M. Smith",
+title = "{Poster: Implementing Transitive Credit with JSON-LD}",
+year = "2014",
+month = "11",
+url = "http://dx.doi.org/10.6084/m9.figshare.1234063"
+}
+
+
+
