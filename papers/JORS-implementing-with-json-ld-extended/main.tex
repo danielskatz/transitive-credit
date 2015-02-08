@@ -97,9 +97,13 @@ The value of transitive credit is in measuring the indirect contributions to a p
 
 Transitive credit could be implemented by adding either creditmaps to the metadata stored with DOIs~\cite{DOI-data-model}, or alternatively by building a separate system to store creditmaps and then adding pointers to entries in this system to the metadata stored in DOIs. Here, we focus on the creditmap itself, and how it can be described in a structured, machine (and human) readable form.
 
-\section{Determining Creditmaps}
+\section{Determining Creditmaps and Weights}
 
-\katznote{discussion about how creditmaps could be determined, provenance systems, hierarchically, etc.}
+\note{this section is new}
+
+One of the challenges in implementing transitive credit is in how creditmap entries are determined: what are the items that should be credited?   Automated systems, such as those that are imagined to store provenance and encourage reproducibility, will help here, as these systems will store the tools and products (e.g., software and data) used in a set of work.  As systems such as Mendeley~\cite{mendeley}, CiteULike~\cite{citeulike}, and Zotero~\cite{zotero} become more common, they will be able to generate lists of items that have been read during a set of work.  And assembling the list of authors and people to be acknowledged will probably remain somewhat manual, though again tools can help, for example, GitHub listing committers to a repository.
+
+Once the items are determined, what weight should be assigned to each is the second challenge.  While this could be done manually, it probably won't be in general, since determining weights for dozens or hundreds of items is probably beyond the average human capability and additionally is probably not needed.  A tool to help determine weights (or a feature of a creditmap tool) seems most likely to be successful.  Such a tool would likely have provide simultaneous views of the credit map and weights: one that allows a detailed view of any particular contriponent and its weight, and the other that provides a view (perhaps graphical) of the entire creditmap and weights. Such a tool could offer an equal distribution of weights as a starting point, or a manual distribution of weights to each type of contriponent, with an equal distribution within types (e.g. 50\% credit to authors, all of which start as equal, 25\% credit to citations, all of which again start as equal, and 25\% credit to software and data, again all of which start as equal.)  A particular value could then be modified, with the tool changing all the other weights so that they continue to sum to 1.
 
 \section{JSON-LD}
 
@@ -126,6 +130,7 @@ Smith recently proposed using JSON-LD for research tools~\cite{arfon-json-ld-blo
 
 A subset (due to space limits) of a possible creditmap for this article follows, as an illustrative example of the power of this concept. 
 \note{could extend this? at least add the acknowledged people}
+\note{also could make the point that there are things here we list as citations (Mendeley for example) that we list only to provide a link to, but which do not really contribute, and would not be listed in the creditmap}
 
 {\footnotesize
 \begin{verbatim}
