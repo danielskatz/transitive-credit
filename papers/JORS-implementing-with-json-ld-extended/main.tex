@@ -128,9 +128,11 @@ In the final stages of standardization at W3C~\cite{w3c}, JSON-LD is designed to
 
 Smith recently proposed using JSON-LD for research tools~\cite{arfon-json-ld-blog}. In this paper, we extend this idea to suggest that it could be used for transitive credit of any scholarly product. Because of namespaced nature of the JSON-LD structure, it is trivial to include all contriponents such as datasets, software, and articles with their appropriate semantic context definition while maintaining a both human and machine-readable structure. Note that we use vocabularies from \url{http://schema.org} for the different entities; other examples include DOAP (\url{https://github.com/edumbill/doap}) and SPDX (\url{http://spdx.org}).
 
-A subset (due to space limits) of a possible creditmap for this article follows, as an illustrative example of the power of this concept. 
-\note{could extend this? at least add the acknowledged people}
-\note{also could make the point that there are things here we list as citations (Mendeley for example) that we list only to provide a link to, but which do not really contribute, and would not be listed in the creditmap}
+A subset (due to space limits) of a possible creditmap for this article follows, as an illustrative example of the power of this concept. Some interesting aspects of the credit map include:
+\begin{itemize}
+\item We assign credit to people who are acknowledged, as they have made a contribution to the article, e.g. Howison, Allen, Proctor
+\item We list software and tools that we cite, e.g., MongoDB, Mendeley, but when we cite them for the purpose of providing information about them though they have not made a contribution to this article, we give them 0 credit.
+\end{itemize}
 
 {\footnotesize
 \begin{verbatim}
@@ -163,16 +165,24 @@ A subset (due to space limits) of a possible creditmap for this article follows,
         "headline": "Transitive credit as a means to address social and technological 
             concerns stemming from citation and attribution of digital products",
         "doi": "10.5334/jors.be",
-        "creditWeight": "0.3"
+        "creditWeight": "0.32"
       }
     ],
     "software": [
       {
         "@type": "Code",
-        "name": "Fidgit",
-        "codeRepository": "https://github.com/arfon/fidgit",
-        "license": "http://opensource.org/licenses/MIT",
-        "creditWeight": "0.04"
+        "name": "MongoDB",
+        "codeRepository": "https://github.com/mongodb",
+        "license": "http://www.apache.org/licenses/LICENSE-2.0",
+        "creditWeight": "0.0"
+      }
+    ],
+    "tool": [
+      {
+        "@type": "Tool",
+        "name": "Mendeley",
+        "toolURL": "http://www.mendeley.com",
+        "creditWeight": "0.0"
       }
     ],
     "acknowledgment": [
@@ -182,7 +192,21 @@ A subset (due to space limits) of a possible creditmap for this article follows,
         "@id": "http://orcid.org/0000-0002-5702-149X",
         "email": "james@howison.name",
         "creditWeight": "0.01"
-      }
+      },
+       {
+        "@type": "Person",
+        "name": "Gabrielle Allen",
+        "@id": "http://orcid.org/XXXX",
+        "email": "gdallen@illinois.edu",
+        "creditWeight": "0.01"
+      },
+      {
+        "@type": "Person",
+        "name": "David Proctor",
+        "@id": "http://orcid.org/XXXX",
+        "email": "djproctor@gmail.com",
+        "creditWeight": "0.01"
+      }     
     ],
     "other": [
       {
