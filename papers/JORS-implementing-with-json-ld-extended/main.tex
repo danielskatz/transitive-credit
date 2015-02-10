@@ -47,7 +47,7 @@
 \newcommand{\katznote}[1]{ {\textcolor{magenta}    {$\blacksquare$~Dan:      #1 }}}
 \newcommand{\arfonnote}[1]{ {\textcolor{orange}    { $\blacksquare$~Arfon:     #1 }}}
 
-\title{Implementing Transitive Credit with JSON-LD \vspace{-0.2cm}}
+\title{Implementing Transitive Credit with JSON-LD}
 
 \author{
 Daniel S. Katz\\
@@ -67,7 +67,6 @@ GitHub Inc.\\
 
 \maketitle
 
-\vspace{-1.2cm}
 \begin{abstract}
 
 \noindent
@@ -128,22 +127,26 @@ In the final stages of standardization at W3C~\cite{w3c}, JSON-LD is designed to
 
 Smith recently proposed using JSON-LD for research tools~\cite{arfon-json-ld-blog}. In this paper, we extend this idea to suggest that it could be used for transitive credit of any scholarly product. Because of namespaced nature of the JSON-LD structure, it is trivial to include all contriponents such as datasets, software, and articles with their appropriate semantic context definition while maintaining a both human and machine-readable structure. Note that we use vocabularies from \url{http://schema.org} for the different entities; other examples include DOAP (\url{https://github.com/edumbill/doap}) and SPDX (\url{http://spdx.org}).
 
+\note{this section below here is new}
+
 In order for the idea of using JSON-LD for product metadata, it needs to be standardized, at least in a de facto sense, both in terms of exactly how it is used (the schema) and how it is stored and accessed.
 
-\katznote{what is collected, and how is it written?}
+To determine a schema, a set of trials would likely help.  They could be done through the Force11 Attribution working group~\cite{force11AWG}, which then would also provide a venue for discussion and consensus.  This group exists to ``catalyze rapid convergence on requirements, approaches, and practical implementation of a system for tracking contributions to any scholarly product,''~\cite{force11AWG}, including transitive credit among other ideas currently being explored.
 
-\katznote{where will this file be stored?  How will it be accessed?}
-
-\katznote{pull from and expand this paragraph to address the two notes above} This credit information could be stored as part of the metadata within the DOI system, perhaps by updating the kernel metadata and adding a creditmap entry to the DOI data dictionary~\cite{DOI-data-model}, though note that this is a standardization activity which requires community effort, similar to that being undertaken today by CASRAI (\url{http://casrai.org}) and others. Then, creditmap information would need to be added by registration authorities (RAs) that hold these scholarly products (i.e., publishers of all sorts, including journals, data archivers).  And it needs to be supported by indexing systems (e.g., Thomson Reuters). Similar complementary changes have also been discussed recently aimed at characterizing contributions rather than assigning  weights~\cite{metatags,contributorship-taxonomy,teams}.
+This credit information could be stored as part of the metadata within the DOI system, perhaps by updating the kernel metadata and adding a creditmap entry to the DOI data dictionary~\cite{DOI-data-model}, though note that this is a standardization activity which requires community effort, similar to that being undertaken today by CASRAI (\url{http://casrai.org}), VIVO (\url{http://vivoweb.org}), and others. Then, creditmap information would need to be added by registration authorities (RAs) that hold these scholarly products (i.e., publishers of all sorts, including journals, data archivers, and universities).  And it needs to be supported by indexing systems (e.g., Thomson Reuters, university). Similar complementary changes have also been discussed recently aimed at characterizing contributions rather than assigning  weights~\cite{metatags,contributorship-taxonomy,teams}.
 
 
 \section{A JSON-LD Example}
+
+\note{the bulleted list in this section is new, and the example is expanded from the previous paper}
 
 A subset (due to space limits) of an possible creditmap for this article follows, as an illustrative example of the power of this concept. Some interesting aspects of the credit map include:
 \begin{itemize}
 \item We assign credit to people who are acknowledged, as they have made a contribution to the article, e.g. Howison, Allen, Proctor
 \item We list software and tools that we cite, e.g., MongoDB, Mendeley, but when we cite them for the purpose of providing information about them though they have not made a contribution to this article, we give them 0 credit.
 \end{itemize}
+
+\katznote{need to fix Allen and Proctor ORCIDs}
 
 {\footnotesize
 \begin{verbatim}
@@ -236,9 +239,10 @@ A subset (due to space limits) of an possible creditmap for this article follows
 
 \section{Conclusions}
 
+\note{some of this paragraph is new}
 In this paper we have outlined a mechanism (a creditmap) and a language (JSON-LD) for ascribing complete credit for all contriponents that have led to a scholarly product.
 This is one of the needed elements to a transitive credit system, along with standard practices for
-how  to write the language (schema), and how to store and access it.  Other issues that would
+how  to write the language (a schema), and how to store and access it.  Other issues that would
 need to be resolved for this system to be used in practice are related to IDs and social practices.
 
 The manner in which we use unique IDs is somewhat rough; we use ORCIDs for people and DOIs for papers, but for other elements, such as software and tools that may not have a DOI, the solution is not clear.
@@ -246,9 +250,11 @@ Additionally, the manner in which weights are assigned is also rough; it might b
 
 While this paper addresses the technical aspects of how to make transitive credit possible, many social questions remain unresolved. For example, disciplinary communities will need to decide what the contriponents are that are relevant to their discipline, how to weigh various categories of contriponents (e.g., are developers more, equally, or less important than libraries?), and how the authors of products should assign weights to specific product contriponents (e.g., reference 1 is more/less important to a manuscript than reference 2.) 
 
-\katznote{summarize advantages to transitive credit here}
+\note{this paragraph is new} Overall, the idea of transitive credit is powerful, as the recognition of contributions (credit) to products would incent the development of such products, and the transitive nature of the credit would incent the development of products at all levels, not just those that are likely to be cited in papers. \katznote{incent vs incentivize vs alt?}
 
 One potential extension to this creditmap we have proposed would be to replace the~\keywords entry to include a description of the subject area from a defined taxonomy. When appropriate, such as in the case of software, this could also include a description of the function of the tool. Using indexing tools such as Elastic Search~\cite{elasticsearch}, it would then be possible to build indexes of these fields and then make powerful faceted searches such as `find astrophysics software, written in Python designed to manipulate spectroscopic data'.
+
+\note{this paragraph is new} One future project that would test the value of transitive credit would be to build creditmaps for a set of software in a given area domain, potentially by working with data stored in GitHub that includes contributors and dependencies, and in some case, citations.  This would build a creditmap graph that could then be analyzed.
 
 Finally, we note that our proposal in this paper is very compatible with the current altmetrics activities~\cite{altmetrics}, and would add to the alternative metrics that could be collected and analyzed.
 
@@ -258,7 +264,7 @@ The authors thank James Howison, Gabrielle Allen, and David Proctor for some dis
 
 Some work by Katz was supported by the National Science Foundation (NSF) while working at the Foundation; any opinion, finding, and conclusions or recommendations expressed in this material are those of the author and do not necessarily reflect the views of the NSF.
 
-\bibliographystyle{plain}
+\bibliographystyle{vancouver}
 \bibliography{wssspe_paper}
 
 \end{document}
