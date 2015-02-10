@@ -128,7 +128,18 @@ In the final stages of standardization at W3C~\cite{w3c}, JSON-LD is designed to
 
 Smith recently proposed using JSON-LD for research tools~\cite{arfon-json-ld-blog}. In this paper, we extend this idea to suggest that it could be used for transitive credit of any scholarly product. Because of namespaced nature of the JSON-LD structure, it is trivial to include all contriponents such as datasets, software, and articles with their appropriate semantic context definition while maintaining a both human and machine-readable structure. Note that we use vocabularies from \url{http://schema.org} for the different entities; other examples include DOAP (\url{https://github.com/edumbill/doap}) and SPDX (\url{http://spdx.org}).
 
-A subset (due to space limits) of a possible creditmap for this article follows, as an illustrative example of the power of this concept. Some interesting aspects of the credit map include:
+In order for the idea of using JSON-LD for product metadata, it needs to be standardized, at least in a de facto sense, both in terms of exactly how it is used (the schema) and how it is stored and accessed.
+
+\katznote{what is collected, and how is it written?}
+
+\katznote{where will this file be stored?  How will it be accessed?}
+
+\katznote{pull from and expand this paragraph to address the two notes above} This credit information could be stored as part of the metadata within the DOI system, perhaps by updating the kernel metadata and adding a creditmap entry to the DOI data dictionary~\cite{DOI-data-model}, though note that this is a standardization activity which requires community effort, similar to that being undertaken today by CASRAI (\url{http://casrai.org}) and others. Then, creditmap information would need to be added by registration authorities (RAs) that hold these scholarly products (i.e., publishers of all sorts, including journals, data archivers).  And it needs to be supported by indexing systems (e.g., Thomson Reuters). Similar complementary changes have also been discussed recently aimed at characterizing contributions rather than assigning  weights~\cite{metatags,contributorship-taxonomy,teams}.
+
+
+\section{A JSON-LD Example}
+
+A subset (due to space limits) of an possible creditmap for this article follows, as an illustrative example of the power of this concept. Some interesting aspects of the credit map include:
 \begin{itemize}
 \item We assign credit to people who are acknowledged, as they have made a contribution to the article, e.g. Howison, Allen, Proctor
 \item We list software and tools that we cite, e.g., MongoDB, Mendeley, but when we cite them for the purpose of providing information about them though they have not made a contribution to this article, we give them 0 credit.
@@ -223,24 +234,19 @@ A subset (due to space limits) of a possible creditmap for this article follows,
 }
 
 
-\section{Using the JSON-LD Metadata}
-
-\katznote{not sure this title is right}
-
-\katznote{where will this file be stored?  How will it be accessed?}
-
-\katznote{role of standards (in this section or in a new one)?}
-
 \section{Conclusions}
 
-In this paper we have outlined a mechanism for ascribing complete credit for all contriponents that have led to a scholarly product.
+In this paper we have outlined a mechanism (a creditmap) and a language (JSON-LD) for ascribing complete credit for all contriponents that have led to a scholarly product.
+This is one of the needed elements to a transitive credit system, along with standard practices for
+how  to write the language (schema), and how to store and access it.  Other issues that would
+need to be resolved for this system to be used in practice are related to IDs and social practices.
 
-This is one of the needed elements to a transitive credit system.  This credit information could be stored as part of the metadata within the DOI system, perhaps by updating the kernel metadata and adding a creditmap entry to the DOI data dictionary~\cite{DOI-data-model}, though note that this is a standardization activity which requires community effort, similar to that being undertaken today by CASRAI (\url{http://casrai.org}) and others. Then, creditmap information would need to be added by registration authorities (RAs) that hold these scholarly products (i.e., publishers of all sorts, including journals, data archivers).  And it needs to be supported by indexing systems (e.g., Thomson Reuters). Similar complementary changes have also been discussed recently aimed at characterizing contributions rather than assigning  weights~\cite{metatags,contributorship-taxonomy,teams}.
-
-The manner in which we use unique IDs is somewhat rough; we use ORCIDs for people and DOIs for papers, but for other elements, such as software that may not have a DOI, the solution is not clear.
+The manner in which we use unique IDs is somewhat rough; we use ORCIDs for people and DOIs for papers, but for other elements, such as software and tools that may not have a DOI, the solution is not clear.
 Additionally, the manner in which weights are assigned is also rough; it might be easier to assign weights within categories, then assign weights to categories, and let the system determine the detailed weights.
 
 While this paper addresses the technical aspects of how to make transitive credit possible, many social questions remain unresolved. For example, disciplinary communities will need to decide what the contriponents are that are relevant to their discipline, how to weigh various categories of contriponents (e.g., are developers more, equally, or less important than libraries?), and how the authors of products should assign weights to specific product contriponents (e.g., reference 1 is more/less important to a manuscript than reference 2.) 
+
+\katznote{summarize advantages to transitive credit here}
 
 One potential extension to this creditmap we have proposed would be to replace the~\keywords entry to include a description of the subject area from a defined taxonomy. When appropriate, such as in the case of software, this could also include a description of the function of the tool. Using indexing tools such as Elastic Search~\cite{elasticsearch}, it would then be possible to build indexes of these fields and then make powerful faceted searches such as `find astrophysics software, written in Python designed to manipulate spectroscopic data'.
 
