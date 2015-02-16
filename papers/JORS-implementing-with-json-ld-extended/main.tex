@@ -239,11 +239,11 @@ A subset (due to space limits) of an possible creditmap for this article follows
 
 \note{some of this paragraph is new}
 In this paper we have outlined a mechanism (a creditmap) and a language (JSON-LD) for ascribing complete credit for all contriponents that have led to a scholarly product.
-This is one of the needed elements to a transitive credit system, along with standard practices for
-how  to write the language (a schema), and how to store and access it.  Other issues that would
-need to be resolved for this system to be used in practice are related to IDs and social practices.
+This is one of the necessary elements for a transitive credit system, others include standard practices for
+how to write the language (a schema), and how to store and access it. Other issues that would
+need to be resolved for this system to be used in practice are related to identifiers and social practices.
 
-The manner in which we use unique IDs is somewhat rough; we use ORCIDs for people and DOIs for papers, but for other elements, such as software and tools that may not have a DOI, the solution is not clear.
+The manner in which we use unique identifiers is somewhat rough; we use ORCIDs for people and DOIs for papers, but for other elements, such as software and tools that may not have a DOI, the solution is not clear.
 Additionally, the manner in which weights are assigned is also rough; it might be easier to assign weights within categories, then assign weights to categories, and let the system determine the detailed weights.
 
 While this paper addresses the technical aspects of how to make transitive credit possible, many social questions remain unresolved. For example, disciplinary communities will need to decide what the contriponents are that are relevant to their discipline, how to weigh various categories of contriponents (e.g., are developers more, equally, or less important than libraries?), and how the authors of products should assign weights to specific product contriponents (e.g., reference 1 is more/less important to a manuscript than reference 2.) 
@@ -252,7 +252,7 @@ While this paper addresses the technical aspects of how to make transitive credi
 
 One potential extension to this creditmap we have proposed would be to replace the~\keywords entry to include a description of the subject area from a defined taxonomy. When appropriate, such as in the case of software, this could also include a description of the function of the tool. Using indexing tools such as Elastic Search~\cite{elasticsearch}, it would then be possible to build indexes of these fields and then make powerful faceted searches such as `find astrophysics software, written in Python designed to manipulate spectroscopic data'.
 
-\note{this paragraph is new} One future project that would test the value of transitive credit would be to build creditmaps for a set of software in a given area domain, potentially by working with data stored in GitHub that includes contributors and dependencies, and in some case, citations.  This would build a creditmap graph that could then be analyzed.
+\note{this paragraph is new} One future project that would test the value of transitive credit would be to build creditmaps for a set of software in a given area domain, potentially by working with data stored in GitHub that includes contributors and dependencies, and in some case, citations. This would build a creditmap graph that could then be analyzed.
 
 Finally, we note that our proposal in this paper is very compatible with the current altmetrics activities~\cite{altmetrics}, and would add to the alternative metrics that could be collected and analyzed.
 
