@@ -100,9 +100,9 @@ Transitive credit could be implemented by adding either creditmaps to the metada
 
 \note{this section is new}
 
-One of the challenges in implementing transitive credit is in how creditmap entries are determined: what are the items that should be credited?   Automated systems, such as those that are imagined to store provenance and encourage reproducibility, will help here, as these systems will store the tools and products (e.g., software and data) used in a set of work.  As systems such as Mendeley~\cite{mendeley}, CiteULike~\cite{citeulike}, and Zotero~\cite{zotero} become more common, they will be able to generate lists of items that have been read during a set of work.  And assembling the list of authors and people to be acknowledged will probably remain somewhat manual, though again tools can help, for example, GitHub listing committers to a repository.
+One of the challenges in implementing transitive credit is in how creditmap entries are determined: what are the items that should be credited? Automated systems, such as those that are imagined to store provenance and encourage reproducibility, will help here, as these systems will store the tools and products (e.g., software and data) used in a set of work. As systems such as Mendeley~\cite{mendeley}, CiteULike~\cite{citeulike}, and Zotero~\cite{zotero} become more common, they will be able to generate lists of items that have been read during a set of work. Assembling the list of authors and people to be acknowledged will probably remain somewhat manual, though again tools can help, for example, GitHub provides a listing of committers to a repository.
 
-Once the items are determined, what weight should be assigned to each is the second challenge.  While this could be done manually, it probably won't be in general, since determining weights for dozens or hundreds of items is probably beyond the average human capability and additionally is probably not needed.  A tool to help determine weights (or a feature of a creditmap tool) seems most likely to be successful.  Such a tool would likely have provide simultaneous views of the credit map and weights: one that allows a detailed view of any particular contriponent and its weight, and the other that provides a view (perhaps graphical) of the entire creditmap and weights. Such a tool could offer an equal distribution of weights as a starting point, or a manual distribution of weights to each type of contriponent, with an equal distribution within types (e.g. 50\% credit to authors, all of which start as equal, 25\% credit to citations, all of which again start as equal, and 25\% credit to software and data, again all of which start as equal.)  A particular value could then be modified, with the tool changing all the other weights so that they continue to sum to 1.
+Once the items are determined, what weight should be assigned to each is the second challenge. While this could be carried out manually, it probably won't be in general, since determining weights for dozens or hundreds of items is probably beyond the average human capability and is also probably not needed. A tool to help determine weights (or a feature of a creditmap tool) seems most likely to be successful. Such a tool would likely have provide simultaneous views of the credit map and weights: one that allows a detailed view of any particular contriponent and its weight, and the other that provides a view (perhaps graphical) of the entire creditmap and weights. Such a tool could offer an equal distribution of weights as a starting point, or a manual distribution of weights to each type of contriponent, with an equal distribution within types (e.g. 50\% credit to authors, all of which start as equal, 25\% credit to citations, all of which again start as equal, and 25\% credit to software and data, again all of which start as equal.) A particular value could then be modified, with the tool changing all the other weights so that they continue to sum to 1.
 
 \section{JSON-LD}
 
@@ -131,10 +131,9 @@ Smith recently proposed using JSON-LD for research tools~\cite{arfon-json-ld-blo
 
 In order for the idea of using JSON-LD for product metadata, it needs to be standardized, at least in a de facto sense, both in terms of exactly how it is used (the schema) and how it is stored and accessed.
 
-To determine a schema, a set of trials would likely help.  They could be done through the Force11 Attribution working group~\cite{force11AWG}, which then would also provide a venue for discussion and consensus.  This group exists to ``catalyze rapid convergence on requirements, approaches, and practical implementation of a system for tracking contributions to any scholarly product,''~\cite{force11AWG}, including transitive credit among other ideas currently being explored.
+To determine a schema, a set of trials would likely help. They could be done through the Force11 Attribution working group~\cite{force11AWG}, which then would also provide a venue for discussion and consensus. This group exists to ``catalyze rapid convergence on requirements, approaches, and practical implementation of a system for tracking contributions to any scholarly product,''~\cite{force11AWG}, including transitive credit among other ideas currently being explored.
 
-This credit information could be stored as part of the metadata within the DOI system, perhaps by updating the kernel metadata and adding a creditmap entry to the DOI data dictionary~\cite{DOI-data-model}, though note that this is a standardization activity which requires community effort, similar to that being undertaken today by CASRAI (\url{http://casrai.org}), VIVO (\url{http://vivoweb.org}), and others. Then, creditmap information would need to be added by registration authorities (RAs) that hold these scholarly products (i.e., publishers of all sorts, including journals, data archivers, and universities).  And it needs to be supported by indexing systems (e.g., Thomson Reuters, university). Similar complementary changes have also been discussed recently aimed at characterizing contributions rather than assigning  weights~\cite{metatags,contributorship-taxonomy,teams}.
-
+This credit information could be stored as part of the metadata within the DOI system, perhaps by updating the kernel metadata and adding a creditmap entry to the DOI data dictionary~\cite{DOI-data-model}, though the authors note that this is a standardization activity which requires community effort, similar to that being undertaken today by CASRAI (\url{http://casrai.org}), VIVO (\url{http://vivoweb.org}), and others. Then, creditmap information would need to be added by registration authorities (RAs) that hold these scholarly products (i.e., publishers of all sorts, including journals, data archivers, and universities). Indexing systems such as Thomson Reuters and universities would also need to develop support for creditmaps. Similar complementary changes have also been discussed recently aimed at characterizing contributions rather than assigning weights~\cite{metatags,contributorship-taxonomy,teams}.
 
 \section{A JSON-LD Example}
 
@@ -143,7 +142,7 @@ This credit information could be stored as part of the metadata within the DOI s
 A subset (due to space limits) of an possible creditmap for this article follows, as an illustrative example of the power of this concept. Some interesting aspects of the credit map include:
 \begin{itemize}
 \item We assign credit to people who are acknowledged, as they have made a contribution to the article, e.g. Howison, Allen, Proctor
-\item We list software and tools that we cite, e.g., MongoDB, Mendeley, but when we cite them for the purpose of providing information about them though they have not made a contribution to this article, we give them 0 credit.
+\item Software and tools are also cited, e.g., MongoDB, Mendeley, but solely for the purpose of providing information about tools used. Note that as they have not made a contribution to this article, we give them 0 credit.
 \end{itemize}
 
 {\footnotesize
@@ -239,11 +238,11 @@ A subset (due to space limits) of an possible creditmap for this article follows
 
 \note{some of this paragraph is new}
 In this paper we have outlined a mechanism (a creditmap) and a language (JSON-LD) for ascribing complete credit for all contriponents that have led to a scholarly product.
-This is one of the needed elements to a transitive credit system, along with standard practices for
-how  to write the language (a schema), and how to store and access it.  Other issues that would
-need to be resolved for this system to be used in practice are related to IDs and social practices.
+This is one of the necessary elements for a transitive credit system, others include standard practices for
+how to write the language (a schema), and how to store and access it. Other issues that would
+need to be resolved for this system to be used in practice are related to identifiers and social practices.
 
-The manner in which we use unique IDs is somewhat rough; we use ORCIDs for people and DOIs for papers, but for other elements, such as software and tools that may not have a DOI, the solution is not clear.
+The manner in which we use unique identifiers is somewhat rough; we use ORCIDs for people and DOIs for papers, but for other elements, such as software and tools that may not have a DOI, the solution is not clear.
 Additionally, the manner in which weights are assigned is also rough; it might be easier to assign weights within categories, then assign weights to categories, and let the system determine the detailed weights.
 
 While this paper addresses the technical aspects of how to make transitive credit possible, many social questions remain unresolved. For example, disciplinary communities will need to decide what the contriponents are that are relevant to their discipline, how to weigh various categories of contriponents (e.g., are developers more, equally, or less important than libraries?), and how the authors of products should assign weights to specific product contriponents (e.g., reference 1 is more/less important to a manuscript than reference 2.) 
@@ -252,7 +251,7 @@ While this paper addresses the technical aspects of how to make transitive credi
 
 One potential extension to this creditmap we have proposed would be to replace the~\keywords entry to include a description of the subject area from a defined taxonomy. When appropriate, such as in the case of software, this could also include a description of the function of the tool. Using indexing tools such as Elastic Search~\cite{elasticsearch}, it would then be possible to build indexes of these fields and then make powerful faceted searches such as `find astrophysics software, written in Python designed to manipulate spectroscopic data'.
 
-\note{this paragraph is new} One future project that would test the value of transitive credit would be to build creditmaps for a set of software in a given area domain, potentially by working with data stored in GitHub that includes contributors and dependencies, and in some case, citations.  This would build a creditmap graph that could then be analyzed.
+\note{this paragraph is new} One future project that would test the value of transitive credit would be to build creditmaps for a set of software in a given area domain, potentially by working with data stored in GitHub that includes contributors and dependencies, and in some case, citations. This would build a creditmap graph that could then be analyzed.
 
 Finally, we note that our proposal in this paper is very compatible with the current altmetrics activities~\cite{altmetrics}, and would add to the alternative metrics that could be collected and analyzed.
 
