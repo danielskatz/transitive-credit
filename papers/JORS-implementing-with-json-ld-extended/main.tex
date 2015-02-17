@@ -98,7 +98,7 @@ Transitive credit could be implemented by adding either creditmaps to the metada
 
 \section{Determining Creditmaps and Weights}
 
-\note{this section is new}
+%\note{this section is new}
 
 One of the challenges in implementing transitive credit is in how creditmap entries are determined: what are the items that should be credited? Automated systems, such as those that are imagined to store provenance and encourage reproducibility, will help here, as these systems will store the tools and products (e.g., software and data) used in a set of work. As systems such as Mendeley~\cite{mendeley}, CiteULike~\cite{citeulike}, and Zotero~\cite{zotero} become more common, they will be able to generate lists of items that have been read during a set of work. Assembling the list of authors and people to be acknowledged will probably remain somewhat manual, though again tools can help, for example, GitHub provides a listing of committers to a repository.
 
@@ -127,7 +127,7 @@ In the final stages of standardization at W3C~\cite{w3c}, JSON-LD is designed to
 
 Smith recently proposed using JSON-LD for research tools~\cite{arfon-json-ld-blog}. In this paper, we extend this idea to suggest that it could be used for transitive credit of any scholarly product. Because of namespaced nature of the JSON-LD structure, it is trivial to include all contriponents such as datasets, software, and articles with their appropriate semantic context definition while maintaining a both human and machine-readable structure. Note that we use vocabularies from \url{http://schema.org} for the different entities; other examples include DOAP (\url{https://github.com/edumbill/doap}) and SPDX (\url{http://spdx.org}).
 
-\note{this section below here is new}
+%\note{this section below here is new}
 
 In order for the idea of using JSON-LD for product metadata, it needs to be standardized, at least in a de facto sense, both in terms of exactly how it is used (the schema) and how it is stored and accessed.
 
@@ -137,12 +137,12 @@ This credit information could be stored as part of the metadata within the DOI s
 
 \section{A JSON-LD Example}
 
-\note{the bulleted list in this section is new, and the example is expanded from the previous paper}
+%\note{the bulleted list in this section is new, and the example is expanded from the previous paper}
 
 A subset (due to space limits) of an possible creditmap for this article follows, as an illustrative example of the power of this concept. Some interesting aspects of the credit map include:
 \begin{itemize}
 \item We assign credit to people who are acknowledged, as they have made a contribution to the article, e.g. Howison, Allen, Proctor
-\item Software and tools are also cited, e.g., MongoDB, Mendeley, but solely for the purpose of providing information about tools used. Note that as they have not made a contribution to this article, we give them 0 credit.
+\item Software and tools are also cited, e.g., MongoDB, Mendeley. In this case, they are cited solely for the purpose of providing information about tools used; as they have not made a contribution to this article, we give them 0 credit.
 \end{itemize}
 
 {\footnotesize
@@ -236,9 +236,9 @@ A subset (due to space limits) of an possible creditmap for this article follows
 
 \section{Conclusions}
 
-\note{some of this paragraph is new}
+%\note{some of this paragraph is new}
 In this paper we have outlined a mechanism (a creditmap) and a language (JSON-LD) for ascribing complete credit for all contriponents that have led to a scholarly product.
-This is one of the necessary elements for a transitive credit system, others include standard practices for
+This is one of the necessary elements for a transitive credit system. Others include standard practices for
 how to write the language (a schema), and how to store and access it. Other issues that would
 need to be resolved for this system to be used in practice are related to identifiers and social practices.
 
@@ -247,11 +247,13 @@ Additionally, the manner in which weights are assigned is also rough; it might b
 
 While this paper addresses the technical aspects of how to make transitive credit possible, many social questions remain unresolved. For example, disciplinary communities will need to decide what the contriponents are that are relevant to their discipline, how to weigh various categories of contriponents (e.g., are developers more, equally, or less important than libraries?), and how the authors of products should assign weights to specific product contriponents (e.g., reference 1 is more/less important to a manuscript than reference 2.) 
 
-\note{this paragraph is new} Overall, the idea of transitive credit is powerful, as the recognition of contributions (credit) to products would encourage the development of such products, and the transitive nature of the credit would encourage the development of products at all levels, not just those that are likely to be cited in papers. 
+%\note{this paragraph is new}
+Overall, the idea of transitive credit is powerful, as the recognition of contributions (credit) to products would encourage the development of such products, and the transitive nature of the credit would encourage the development of products at all levels, not just those that are likely to be cited in papers. 
 
 One potential extension to this creditmap we have proposed would be to replace the~\keywords entry to include a description of the subject area from a defined taxonomy. When appropriate, such as in the case of software, this could also include a description of the function of the tool. Using indexing tools such as Elastic Search~\cite{elasticsearch}, it would then be possible to build indexes of these fields and then make powerful faceted searches such as `find astrophysics software, written in Python designed to manipulate spectroscopic data'.
 
-\note{this paragraph is new} One future project that would test the value of transitive credit would be to build creditmaps for a set of software in a given area domain, potentially by working with data stored in GitHub that includes contributors and dependencies, and in some case, citations. This would build a creditmap graph that could then be analyzed.
+%\note{this paragraph is new}
+One future project that would test the value of transitive credit would be to build creditmaps for a set of software in a given area domain, potentially by working with data stored in GitHub that includes contributors and dependencies, and in some case, citations. This would build a creditmap graph that could then be analyzed.
 
 Finally, we note that our proposal in this paper is very compatible with the current altmetrics activities~\cite{altmetrics}, and would add to the alternative metrics that could be collected and analyzed.
 
